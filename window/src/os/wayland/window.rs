@@ -256,7 +256,7 @@ impl WaylandWindow {
         window.set_app_id(class_name.to_string());
         window.set_title(name.to_string());
 
-        let decor_mode = if decorations == WindowDecorations::NONE {
+        let decor_mode = if !decorations.contains(WindowDecorations::TITLE) {
             None
         } else if decorations == WindowDecorations::default() {
             Some(DecorationMode::Server)
