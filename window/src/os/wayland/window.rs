@@ -245,7 +245,7 @@ impl WaylandWindow {
         let decorations = config.window_decorations;
         let window = {
             let xdg_shell = &conn.wayland_state.borrow().xdg;
-            let initial_decorations = if decorations == WindowDecorations::NONE {
+            let initial_decorations = if !decorations.contains(WindowDecorations::TITLE) {
                 Decorations::None
             } else {
                 Decorations::RequestServer
